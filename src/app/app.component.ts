@@ -47,7 +47,8 @@ export class AppComponent {
     if (this.includeSymbols) {
       validChars += symbols;
     }
-    // generated for loop starting at 0 all the way to the inputed length property value. then select a character at random out of the validChars array to form the password
+    // generated a for loop starting at 0 all the way to the inputed length property value.
+    //then select a character at random out of the validChars array to form the password
     let generatedPassword = '';
     for (let i = 0; i < this.length; ++i) {
       const index = Math.floor(Math.random() * validChars.length);

@@ -1,13 +1,14 @@
 <div class="container mt-4">
   <div class="title"><h1>Password Generator</h1></div>
   <label for="FormContolInput" class="form-label">Lenght: </label>
-
+  <!--event binding when the checkbox is tick so the function-->
   <input
     class="form-control"
     placeholder="Enter password"
     (input)="onChangeLength($event.target!)"
   />
   <div class="form-check">
+    <!--event binding when the checkbox is tick so the function-->
     <input
       class="form-check-input"
       type="checkbox"
@@ -16,6 +17,7 @@
     <label class="form-check-label" for="flexCheckDefault"> Use Letters </label>
   </div>
   <div class="form-check">
+    <!--event binding when the checkbox is tick so the function-->
     <input
       class="form-check-input"
       type="checkbox"
@@ -24,6 +26,7 @@
     <label class="form-check-label" for="flexCheckChecked"> Use Numbers </label>
   </div>
   <div class="form-check">
+    <!--event binding when the checkbox is tick so the function-->
     <input
       class="form-check-input"
       type="checkbox"
@@ -33,7 +36,14 @@
   </div>
 
   <div class="d-grid gap-2 col-6 mx-auto">
-    <button (click)="onButtonClick()" class="btn btn-lg" type="button">
+    <!--Disable button if length and one of the checkedboxes are not checked-->
+    <button
+      [disabled]="
+        !(length && (includeLetters || includeNumbers || includeSymbols))
+      "
+      (click)="onButtonClick()"
+      type="button"
+    >
       Generate
     </button>
   </div>
@@ -68,4 +78,3 @@
     <input [value]="password" />
   </div>
 </div> -->
-{{ password }}
