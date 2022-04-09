@@ -1,0 +1,68 @@
+<div class="card text-dark bg-warning border-info mt-4" style="width: 30rem">
+  <div class="card-body">
+    <div class="title"><h1>Password Generator</h1></div>
+    <label for="FormContolInput" class="form-label">Lenght: </label>
+    <!--event binding when the checkbox is tick so the function-->
+    <input
+      class="form-control"
+      placeholder="Enter password"
+      (input)="onChangeLength($event.target!)"
+    />
+    <div class="form-check">
+      <!--event binding when the checkbox is tick so the function-->
+      <input
+        class="form-check-input"
+        type="checkbox"
+        (change)="onChangeUseLetters()"
+      />
+      <label class="form-check-label" for="flexCheckDefault">
+        Use Letters
+      </label>
+    </div>
+    <div class="form-check">
+      <!--event binding when the checkbox is tick so the function-->
+      <input
+        class="form-check-input"
+        type="checkbox"
+        (change)="onChangeUseNumbers()"
+      />
+      <label class="form-check-label" for="flexCheckChecked">
+        Use Numbers
+      </label>
+    </div>
+    <div class="form-check">
+      <!--event binding when the checkbox is tick so the function-->
+      <input
+        class="form-check-input"
+        type="checkbox"
+        (change)="onChangeUseSymbols()"
+      />
+      <label class="form-check-label" for="flexCheckChecked">
+        Use Symbols
+      </label>
+    </div>
+
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <!--Disable button if length and one of the checkedboxes are not checked-->
+      <button
+        [disabled]="
+          !(length && (includeLetters || includeNumbers || includeSymbols))
+        "
+        (click)="onButtonClick()"
+        type="button"
+        class="btn btn-primary"
+      >
+        Generate
+      </button>
+    </div>
+    <!--Add condition to show password only when have a value to generate-->
+    <div class="box" *ngIf="password">
+      <label for="exampleFormControlInput1" class="form-label"
+        >Your Password:</label
+      >
+      <input type="pasword" class="form-control" [value]="password" />
+    </div>
+
+    <button class="btn btn-sm" routerLink="/passgen2">style1</button>
+  </div>
+</div>
